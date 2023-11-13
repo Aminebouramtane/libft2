@@ -1,42 +1,80 @@
 
 
-// #include "libft.h"
-#include <stdio.h>
+#include "libft.h"
 
-int    count_alpha(char *str, char c)
+static	int	count_word(char const *s, char c)
 {
-    int i;
-    int flag;
-    int count;
+	int	count;
+	int	flag ;
+	int	i;
 
-    i = 0;
-    flag = 1;
-    count = 0;
-
-    while (str[i])
-    {
-        if(str[i] != c && flag == 1){
-            flag = 0;
-            count++;
-        }
-        else if (str[i] == c){
-            flag = 1;
-        }
-        i++;
-    }
-    return (count);
+	count = 0;
+	flag = 1;
+	i = 0;
+	while (s[i])
+	{
+		if (flag && s[i] != c)
+		{
+			flag = 0;
+			count++;
+		}
+		if (s[i] == c)
+			flag = 1;
+		i++;
+	}
+	return (count);
 }
 
-
-
-int main()
+static	char	*get_word(char const *s, char c, int *index)
 {
-    char *ptr = " ";
-    printf("%d \n",count_alpha(ptr, ' '));
-    return (0);
+	int	i;
+	int	start;
+	char *str;
+
+	i = *index;
+	while (s[i] && s[i] == c)
+		i++;	
+	start = i;
+	while (s[i] && s[i] != c)
+		i++;
+	str = ft_calloc((i - start) + 1, sizeof(char));
+	if (!str)
+		return (NULL);
+	ft_strlcpy(str, s + start, (i - start) + 1);
+	*index = i;
+	return (str);
 }
 
-// char **ft_split(char const *s, char c)
-// {
-    
-// }
+static	void ft_free(char **s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+		free(s[i++]);
+	free(s);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**str;
+	int		index;
+	int		i;
+
+	str = ft_calloc(count_word(s, c) + 1, sizeof(char *));
+	if (!str)
+		return (NULL);
+	i = 0;
+	index = 0;
+	while (i < count_word(s, c))
+	{
+		str[i] = get_word(s, c, &index);
+		if (!str[i])
+		{
+			ft_free(str);
+			return (NULL);
+		}
+		i++;
+	}
+	return (str);
+}
