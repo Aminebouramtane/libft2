@@ -43,6 +43,11 @@ ft_strjoin.c	\
 ft_strtrim.c	\
 ft_itoa.c	\
 ft_strmapi	\
+ft_striteri	\
+ft_putchar_fd	\
+ft_putstr_fd	\
+ft_putendl_fd	\
+ft_putnbr_fd	\
 
 
 HLB=	$(AF:.c=.o)
