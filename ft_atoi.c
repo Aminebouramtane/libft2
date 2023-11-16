@@ -6,7 +6,7 @@
 /*   By: abouramt <abouramt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:56:43 by abouramt          #+#    #+#             */
-/*   Updated: 2023/11/09 20:08:27 by abouramt         ###   ########.fr       */
+/*   Updated: 2023/11/15 16:01:40 by abouramt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_atoi(const char *str)
 	{
 		if (str[i] == '-')
 			sign *= -1;
-		i++;	
+		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{

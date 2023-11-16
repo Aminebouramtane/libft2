@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abouramt <abouramt@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/16 03:30:58 by abouramt          #+#    #+#             */
+/*   Updated: 2023/11/16 03:31:44 by abouramt         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 
@@ -27,13 +37,13 @@ static	int	count_word(char const *s, char c)
 
 static	char	*get_word(char const *s, char c, int *index)
 {
-	int	i;
-	int	start;
-	char *str;
+	int		i;
+	int		start;
+	char	*str;
 
 	i = *index;
 	while (s[i] && s[i] == c)
-		i++;	
+		i++;
 	start = i;
 	while (s[i] && s[i] != c)
 		i++;
@@ -45,7 +55,7 @@ static	char	*get_word(char const *s, char c, int *index)
 	return (str);
 }
 
-static	void ft_free(char **s)
+static	void	ft_free(char **s)
 {
 	int	i;
 

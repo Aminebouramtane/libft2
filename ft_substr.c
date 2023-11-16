@@ -6,7 +6,7 @@
 /*   By: abouramt <abouramt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:54:10 by abouramt          #+#    #+#             */
-/*   Updated: 2023/11/09 14:38:22 by abouramt         ###   ########.fr       */
+/*   Updated: 2023/11/16 03:26:06 by abouramt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	size_t	j;
 	char	*ptr;
+
 	if (start > ft_strlen(s))
-		return (ft_calloc(1,1));
+		return (ft_calloc(1, 1));
 	if (len > ft_strlen(s + start))
 		len = ft_strlen(s + start);
 	if (!s)
@@ -30,7 +31,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	j = 0;
 	while (j < len && i < ft_strlen(s))
 	{
-		
 			ptr[j] = s[i];
 			j++;
 			i++;
@@ -44,4 +44,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 // hello , 2 , 50
 // llo ===> 3 
-
