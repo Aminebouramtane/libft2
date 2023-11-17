@@ -6,7 +6,7 @@
 /*   By: abouramt <abouramt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 17:02:33 by abouramt          #+#    #+#             */
-/*   Updated: 2023/11/16 00:14:19 by abouramt         ###   ########.fr       */
+/*   Updated: 2023/11/17 02:24:21 by abouramt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,34 +15,26 @@
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new_list;
-	t_list	*current;
-	t_list	*new_node;
-	t_list	*result;
+	t_list	*save;
 
-	new_list = NULL;
-	current = NULL;
+	if (!lst || !f || !del)
+		return (0);
+	new_list = ft_lstnew(f(lst->content));
+	if (!new_list)
+		return (0);
+	save = new_list;
+	lst = lst->next;
 	while (lst)
 	{
-		result = f(lst->content);
-		new_node = malloc(sizeof(t_list));
-		if (!new_node)
+		new_list->next = ft_lstnew(f(lst->content));
+		if (!new_list->next)
 		{
-			ft_lstclear(&new_list, del);
-			return (NULL);
+			ft_lstclear(&save, del);
+			return (0);
 		}
-		new_node->content = result;
-		new_node->next = NULL;
-		if (!new_list)
-		{
-			new_list = new_node;
-			current = new_list;
-		}
-		else
-		{
-			current->next = new_node;
-			current = current->next;
-		}
+		new_list = new_list->next;
 		lst = lst->next;
 	}
-	return (new_list);
+	new_list->next = NULL;
+	return (save);
 }
