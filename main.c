@@ -63,24 +63,26 @@ int main(){
 	// printf("%s \n", ft_strtrim(b,c));
 	// printf("====================== \n");
 	// printf("%s \n", ft_itoa(-32));
-	char str[10] = "12345";
-	strlcat(str, "6789" , 10);
-	printf("%s\n", str);
-	char str2[10] = "12345";
+	// char str[10] = "12345";
+	// strlcat(str, "6789" , 10);
+	// printf("%s\n", str);
+	// char str2[10] = "12345";
 
-	ft_strlcat(str2, "6789" , 10);
+	// ft_strlcat(str2, "6789" , 10);
 
 	
-	printf("%s", str2);
+	// printf("%s", str2);
 
-	char dest[11] = 'a';
-    printf("%zu", ft_strlcat(dest, "lorem", 15));
+	// char dest[11] = 'a';
+    // printf("%zu", ft_strlcat(dest, "lorem", 15));
 
-	printf("%s", dest);
-	char dest2[11] = 'a';
-    printf("%zu", strlcat(dest2, "lorem", 15));
+	// printf("%s", dest);
+	// char dest2[11] = 'a';
+    // printf("%zu", strlcat(dest2, "lorem", 15));
 
-	printf("%s", dest2);
+	// printf("%s", dest2);
+
+	printf("%lu",  ft_strlcat(NULL, "HELLOAAA", 0));
 	
 	return (0);
 }
