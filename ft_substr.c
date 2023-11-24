@@ -6,7 +6,7 @@
 /*   By: abouramt <abouramt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:54:10 by abouramt          #+#    #+#             */
-/*   Updated: 2023/11/24 13:47:35 by abouramt         ###   ########.fr       */
+/*   Updated: 2023/11/24 17:05:55 by abouramt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	j;
 	char	*ptr;
 
-	if (start > ft_strlen(s))
-		return (ft_calloc(1, 1));
-	if (len > ft_strlen(s + start))
-		len = ft_strlen(s + start);
 	if (!s)
 		return (NULL);
+	if ((size_t)start > ft_strlen(s))
+		return (ft_strdup(""));
+	if (len > ft_strlen(s + start))
+		len = ft_strlen(s + start);
 	ptr = (char *)malloc(len + 1);
 	if (ptr == 0)
 		return (NULL);
