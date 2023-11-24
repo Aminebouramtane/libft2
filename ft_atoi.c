@@ -6,7 +6,7 @@
 /*   By: abouramt <abouramt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:56:43 by abouramt          #+#    #+#             */
-/*   Updated: 2023/11/15 16:01:40 by abouramt         ###   ########.fr       */
+/*   Updated: 2023/11/24 13:45:29 by abouramt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	sign;
-	int	res;
+	long	i;
+	long	sign;
+	int		res;
 
 	i = 0;
 	sign = 1;

@@ -6,7 +6,7 @@
 /*   By: abouramt <abouramt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 03:30:58 by abouramt          #+#    #+#             */
-/*   Updated: 2023/11/16 03:31:44 by abouramt         ###   ########.fr       */
+/*   Updated: 2023/11/24 14:12:47 by abouramt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ char	**ft_split(char const *s, char c)
 	int		index;
 	int		i;
 
+	if (!s)
+		return (NULL);
 	str = ft_calloc(count_word(s, c) + 1, sizeof(char *));
 	if (!str)
 		return (NULL);
