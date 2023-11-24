@@ -6,7 +6,7 @@
 /*   By: abouramt <abouramt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:07:55 by abouramt          #+#    #+#             */
-/*   Updated: 2023/11/08 14:05:18 by abouramt         ###   ########.fr       */
+/*   Updated: 2023/11/24 13:27:06 by abouramt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	char	*d;
 	char	*s;
 
+	if ((dst == src) || n == 0)
+		return (dst);
+	if (!dst && !src)
+		return (0);
 	d = (char *)dst;
 	s = (char *)src;
 	i = 0;

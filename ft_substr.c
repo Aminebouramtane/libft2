@@ -6,7 +6,7 @@
 /*   By: abouramt <abouramt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:54:10 by abouramt          #+#    #+#             */
-/*   Updated: 2023/11/16 03:26:06 by abouramt         ###   ########.fr       */
+/*   Updated: 2023/11/24 13:35:15 by abouramt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (ptr);
 }
 
-// hello world , 1 , 4
-// return (ello)
-
-// hello , 2 , 50
-// llo ===> 3 

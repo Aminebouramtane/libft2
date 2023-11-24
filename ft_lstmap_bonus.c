@@ -6,7 +6,7 @@
 /*   By: abouramt <abouramt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 17:02:33 by abouramt          #+#    #+#             */
-/*   Updated: 2023/11/17 02:24:21 by abouramt         ###   ########.fr       */
+/*   Updated: 2023/11/24 10:21:01 by abouramt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,19 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*new_list;
-	t_list	*save;
+	t_list	*head;
+	t_list	*tmp;
 
 	if (!lst || !f || !del)
-		return (0);
-	new_list = ft_lstnew(f(lst->content));
-	if (!new_list)
-		return (0);
-	save = new_list;
-	lst = lst->next;
+		return (NULL);
+	head = NULL;
 	while (lst)
 	{
-		new_list->next = ft_lstnew(f(lst->content));
-		if (!new_list->next)
-		{
-			ft_lstclear(&save, del);
-			return (0);
-		}
-		new_list = new_list->next;
+		tmp = ft_lstnew(f(lst->content));
+		if (!tmp)
+			ft_lstclear(&head, del);
+		ft_lstadd_back(&head, tmp);
 		lst = lst->next;
 	}
-	new_list->next = NULL;
-	return (save);
+	return (head);
 }
